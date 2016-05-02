@@ -1,9 +1,10 @@
 import {Injectable, Optional} from 'angular2/core';
 import {Http} from 'angular2/http';
-import {Observable} from 'rxjs/Observable';
-import utils from 'ng2-common/utils';
 import {TranslateLoader} from 'ng2-translate/ng2-translate';
 import {ExternalTranslationLoaderOptions} from './ExternalTranslationLoaderOptions';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
+import utils from 'ng2-common/utils';
 
 /**
  * External translation loader, that can be configured with multiple resources

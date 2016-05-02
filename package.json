@@ -1,6 +1,6 @@
 {
     "name": "ng2-external-translation-loader",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Angular 2 module - external translation loader for ng2-translate",
     "scripts":
     {
@@ -32,14 +32,14 @@
     "license": "MIT",
     "dependencies":
     {
-        "angular2": "2.0.0-beta.15",
+        "angular2": "2.0.0-beta.17",
         "es6-promise": "^3.1.2",
         "es6-shim": "^0.35.0",
         "reflect-metadata": "0.1.2",
-        "zone.js": "0.6.10",
-        "rxjs": "5.0.0-beta.2",
-        "ng2-translate": "~1.11.1",
-        "ng2-common": "1.1.0"
+        "zone.js": "0.6.12",
+        "rxjs": "5.0.0-beta.6",
+        "ng2-translate": "2.0.0",
+        "ng2-common": "1.2.0"
     },
     "devDependencies":
     {
