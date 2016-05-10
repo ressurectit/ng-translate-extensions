@@ -8,4 +8,4 @@ typings.json
 *.map
 *.log
 !*.d.ts
-/bundle/ng2-external-translation-loader.dev.d.ts
+index.dev.d.ts

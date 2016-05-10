@@ -1,10 +1,10 @@
-import {Injectable, Optional} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Injectable, Optional} from '@angular/core';
+import {Http} from '@angular/http';
 import {TranslateLoader} from 'ng2-translate/ng2-translate';
 import {ExternalTranslationLoaderOptions} from './ExternalTranslationLoaderOptions';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
-import utils from 'ng2-common/utils';
+import {Utils} from '@ng2/common';
 
 /**
  * External translation loader, that can be configured with multiple resources
@@ -41,7 +41,7 @@ export class ExternalTranslationLoader implements TranslateLoader
                                
                                for(var index in success)
                                {
-                                   utils.common.extend(translations, success[index]);
+                                   Utils.common.extend(translations, success[index]);
                                }
                                
                                observer.next(translations);
