@@ -1,7 +1,4 @@
 /node_modules
-/typings
-/common
-*.d.ts
-*.js
-*.map
+/dist
+
 *.log
