@@ -1,6 +1,6 @@
 {
     "name": "@ng2/external-translation-loader",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Angular 2 module - external translation loader for ng2-translate",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",

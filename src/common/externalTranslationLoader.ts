@@ -2,7 +2,7 @@ import {Injectable, Optional} from '@angular/core';
 import {Http} from '@angular/http';
 import {Utils} from '@ng2/common';
 import {TranslateLoader} from 'ng2-translate/ng2-translate';
-import {ExternalTranslationLoaderOptions} from './ExternalTranslationLoaderOptions';
+import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptions';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
 
