@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 /**
  * Options that are used within ExternalTranslationLoader
  */
-@Injectable()
 export class ExternalTranslationLoaderOptions
 {
     //######################### public properties #########################
