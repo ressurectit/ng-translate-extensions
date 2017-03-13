@@ -1,5 +1,3 @@
-import {Injectable} from '@angular/core';
-
 /**
  * Options that are used within ExternalTranslationLoader
  */

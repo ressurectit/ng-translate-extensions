@@ -1,10 +1,9 @@
 import {Injectable, Optional} from '@angular/core';
 import {Http} from '@angular/http';
 import {Utils} from '@anglr/common';
-import {TranslateLoader} from 'ng2-translate';
+import {TranslateLoader} from '@ngx-translate/core';
 import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptions';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/forkJoin';
 
 /**
  * External translation loader, that can be configured with multiple resources
@@ -16,7 +15,7 @@ export class ExternalTranslationLoader implements TranslateLoader
     constructor(@Optional() private _options: ExternalTranslationLoaderOptions,
                 private _http: Http)
     {
-        if(!_options)
+        if(!_options || !(_options instanceof ExternalTranslationLoaderOptions))
         {
             this._options = new ExternalTranslationLoaderOptions("translations", ["lang"], ".json");
         }

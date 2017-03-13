@@ -17,6 +17,7 @@ module.exports = function(options)
         [
             /^@ng\/.*$/,
             /^@angular\/.*$/,
+            /^@ngx-translate\/.*$/,
             /^rxjs\/.*$/
         ],
         plugins: []
