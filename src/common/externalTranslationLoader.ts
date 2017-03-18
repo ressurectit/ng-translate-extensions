@@ -1,6 +1,6 @@
-import {Injectable, Optional} from '@angular/core';
+import {Injectable, Optional, Inject} from '@angular/core';
 import {Http} from '@angular/http';
-import {Utils} from '@anglr/common';
+import {Utils, SERVER_BASE_URL, isBlank} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
 import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptions';
 import {Observable} from 'rxjs/Observable';
@@ -13,8 +13,14 @@ export class ExternalTranslationLoader implements TranslateLoader
 {
     //######################### constructor #########################
     constructor(@Optional() private _options: ExternalTranslationLoaderOptions,
+                @Optional() @Inject(SERVER_BASE_URL) private _baseUrl: string,
                 private _http: Http)
     {
+        if(isBlank(_baseUrl))
+        {
+            this._baseUrl = "";
+        }
+
         if(!_options || !(_options instanceof ExternalTranslationLoaderOptions))
         {
             this._options = new ExternalTranslationLoaderOptions("translations", ["lang"], ".json");
@@ -30,7 +36,7 @@ export class ExternalTranslationLoader implements TranslateLoader
             
             this._options.resources.forEach(itm =>
             {
-                translationsResources.push(this._http.get(`${this._options.resourcePrefix}/${lang}/${itm}${this._options.resourceSufix}`).map(itm => itm.json()));
+                translationsResources.push(this._http.get(`${this._baseUrl}${this._options.resourcePrefix}/${lang}/${itm}${this._options.resourceSufix}`).map(itm => itm.json()));
             });
             
             Observable.forkJoin(translationsResources)
