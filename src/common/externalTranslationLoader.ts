@@ -11,6 +11,13 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class ExternalTranslationLoader implements TranslateLoader
 {
+    //######################### private fields #########################
+
+    /**
+     * Cached results for requested urls
+     */
+    private _cachedResults: {[url: string]: Promise<any>} = {};
+
     //######################### constructor #########################
     constructor(@Optional() private _options: ExternalTranslationLoaderOptions,
                 @Optional() @Inject(SERVER_BASE_URL) private _baseUrl: string,
@@ -32,11 +39,28 @@ export class ExternalTranslationLoader implements TranslateLoader
     {
         return Observable.create(observer =>
         {
-            var translationsResources: Observable<any>[] = [];
+            var translationsResources: Promise<any>[] = [];
             
             this._options.resources.forEach(itm =>
             {
-                translationsResources.push(this._http.get(`${this._baseUrl}${this._options.resourcePrefix}/${lang}/${itm}${this._options.resourceSufix}`).map(itm => itm.json()));
+                let url = `${this._baseUrl}${this._options.resourcePrefix}/${lang}/${itm}${this._options.resourceSufix}`;
+
+                if(this._cachedResults[url])
+                {
+                    translationsResources.push(this._cachedResults[url]);
+                }
+                else
+                {
+                    this._cachedResults[url] = new Promise<any>((resolve, reject) =>
+                    {
+                        this._http
+                            .get(url)
+                            .map(itm => itm.json())
+                            .subscribe(data => resolve(data), error => reject(error));
+                    });
+
+                    translationsResources.push(this._cachedResults[url]);
+                }
             });
             
             Observable.forkJoin(translationsResources)
