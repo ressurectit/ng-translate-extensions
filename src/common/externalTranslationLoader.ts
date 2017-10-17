@@ -1,7 +1,8 @@
 import {Injectable, Optional, Inject} from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import {Utils, SERVER_BASE_URL, isBlank} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
+
 import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptions';
 import {Observable} from 'rxjs/Observable';
 
@@ -21,7 +22,7 @@ export class ExternalTranslationLoader implements TranslateLoader
     //######################### constructor #########################
     constructor(@Optional() private _options: ExternalTranslationLoaderOptions,
                 @Optional() @Inject(SERVER_BASE_URL) private _baseUrl: string,
-                private _http: Http)
+                private _http: HttpClient)
     {
         if(isBlank(_baseUrl))
         {
@@ -35,7 +36,12 @@ export class ExternalTranslationLoader implements TranslateLoader
     }
 
     //######################### public methods #########################
-    getTranslation(lang: string): Observable<any>
+    
+    /**
+     * Gets translations for language
+     * @param {string} lang Id of language
+     */
+    public getTranslation(lang: string): Observable<any>
     {
         return Observable.create(observer =>
         {
@@ -55,7 +61,6 @@ export class ExternalTranslationLoader implements TranslateLoader
                     {
                         this._http
                             .get(url)
-                            .map(itm => itm.json())
                             .subscribe(data => resolve(data), error => reject(error));
                     });
 
