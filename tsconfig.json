@@ -10,7 +10,7 @@
         "noImplicitAny": false,
         "moduleResolution": "node",
         "outDir": "dist",
-        "lib":
+        "lib": 
         [
             "es2016", 
             "dom"
@@ -22,7 +22,7 @@
             }
         ]
     },
-    "exclude":
+    "exclude": 
     [
         "node_modules",
         "dist",
@@ -30,7 +30,7 @@
         "*.spec.ts",
         "karma-test-shim.ts"
     ],
-    "angularCompilerOptions":
+    "angularCompilerOptions": 
     {
         "skipMetadataEmit" : false,
         "genDir": "dist"
