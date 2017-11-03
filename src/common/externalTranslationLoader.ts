@@ -2,9 +2,11 @@ import {Injectable, Optional, Inject} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Utils, SERVER_BASE_URL, isBlank} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
+import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
+import {forkJoin} from 'rxjs/observable/forkJoin';
 
 import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptions';
-import {Observable} from 'rxjs/Observable';
 
 /**
  * External translation loader, that can be configured with multiple resources
@@ -43,7 +45,7 @@ export class ExternalTranslationLoader implements TranslateLoader
      */
     public getTranslation(lang: string): Observable<any>
     {
-        return Observable.create(observer =>
+        return Observable.create((observer: Observer<any>) =>
         {
             var translationsResources: Promise<any>[] = [];
             
@@ -68,7 +70,7 @@ export class ExternalTranslationLoader implements TranslateLoader
                 }
             });
             
-            Observable.forkJoin(translationsResources)
+            forkJoin(translationsResources)
                 .subscribe(success =>
                            {
                                var translations = {};
