@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.0.1
+ - removed `ExternalTranslationLoaderModule`
+ - removed `Injeactable`
+ - now should use factory methods to instantiate
+
 ## Version 4.0.0
  - updated angular to 5.0.0 (final)
  - changed dependencies of project to peerDependencies

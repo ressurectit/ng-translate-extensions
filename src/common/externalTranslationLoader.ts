@@ -1,6 +1,5 @@
-import {Injectable, Optional, Inject} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Utils, SERVER_BASE_URL, isBlank} from '@anglr/common';
+import {Utils, isBlank} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
@@ -11,7 +10,6 @@ import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptio
 /**
  * External translation loader, that can be configured with multiple resources
  */
-@Injectable()
 export class ExternalTranslationLoader implements TranslateLoader
 {
     //######################### private fields #########################
@@ -22,8 +20,8 @@ export class ExternalTranslationLoader implements TranslateLoader
     private _cachedResults: {[url: string]: Promise<any>} = {};
 
     //######################### constructor #########################
-    constructor(@Optional() private _options: ExternalTranslationLoaderOptions,
-                @Optional() @Inject(SERVER_BASE_URL) private _baseUrl: string,
+    constructor(private _options: ExternalTranslationLoaderOptions,
+                private _baseUrl: string,
                 private _http: HttpClient)
     {
         if(isBlank(_baseUrl))
