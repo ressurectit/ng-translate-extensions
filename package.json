@@ -1,6 +1,6 @@
 {
-    "name": "@anglr/etranslate-extensions",
-    "version": "5.0.0-beta.1",
+    "name": "@anglr/translate-extensions",
+    "version": "5.0.0-beta.2",
     "description": "Angular module - external translation loader for ng2-translate",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -19,8 +19,8 @@
         "deploy:next": "npp -p -b -s \"beta\" -t \"next\"",
         "deploy:stable:local": "npp -b --registry http://local:4873",
         "deploy:next:local": "npp -p -b -s \"beta\" -t \"next\" --registry http://local:4873",
-        "docs": "compodoc src -d docs -n '@anglr/etranslate-extensions' -p tsconfig.json --disablePrivate --disableInternal --disableLifeCycleHooks",
-        "postdocs": "copyfiles -u 1 docs/**/*.* \\\\DOCS-SERVER\\docs\\ng-etranslate-extensions && npm run clean",
+        "docs": "compodoc src -d docs -n '@anglr/translate-extensions' -p tsconfig.json --disablePrivate --disableInternal --disableLifeCycleHooks",
+        "postdocs": "copyfiles -u 1 docs/**/*.* \\\\DOCS-SERVER\\docs\\ng-translate-extensions && npm run clean",
         "pretest": "webpack",
         "test": "karma start karma.conf.js"
     },

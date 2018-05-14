@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.0-beta.2
+- opravený názov balíčka
+
 ## Version 5.0.0-beta.1
  - aktualizácia balíčkov `Angular` na `6`
  - aktualizácia `Webpack` na verziu `4`
