@@ -4,20 +4,25 @@
         "target": "es5",
         "module": "esnext",
         "moduleResolution": "node",
-        "sourceMap": false,
+        "sourceMap": true,
         "declaration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "strictNullChecks": true,
+        "strictNullChecks": false,
         "outDir": "dist",
         "lib": 
         [
-            "es2015", 
+            "es2016", 
             "dom"
+        ],
+        "typeRoots": 
+        [
+            "node_modules/@types",
+            "node_modules/@anglr/types"
         ],
         "plugins": 
         [
@@ -30,14 +35,10 @@
     [
         "node_modules",
         "dist",
-        "testing",
-        "*.spec.ts",
-        "karma-test-shim.ts"
+        "testing"
     ],
     "angularCompilerOptions": 
     {
-        "skipMetadataEmit": false,
-        "strictMetadataEmit": true,
         "fullTemplateTypeCheck": true,
         "preserveWhitespaces": false
     }

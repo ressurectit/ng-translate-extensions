@@ -1,9 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Utils, isBlank} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
-import {Observable} from 'rxjs/Observable';
-import {Observer} from 'rxjs/Observer';
-import {forkJoin} from 'rxjs/observable/forkJoin';
+import {Observable, Observer, forkJoin} from 'rxjs';
 
 import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptions';
 
