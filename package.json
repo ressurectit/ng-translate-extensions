@@ -4,6 +4,7 @@
     "description": "Angular module - external translation loader for ng2-translate",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
+    "sideEffects": false,
     "scripts": {
         "build": "npm run ngc",
         "postbuild": "copyfiles -u 2 dist/src/**/*.* dist && copyfiles -u 2 dist/testing/**/*.* testing && rimraf dist/src dist/dist dist/node_modules dist/testing",
@@ -74,7 +75,7 @@
         "css-loader": "~0.28.11",
         "file-loader": "~1.1.11",
         "style-loader": "~0.21.0",
-        "@compodoc/compodoc": "~1.0.9",
+        "@compodoc/compodoc": "~1.1.3",
         "rimraf": "~2.6.2",
         "copyfiles": "~2.0.0",
         "typescript": "~2.7.2",
