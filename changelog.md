@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 5.0.0
+ - `@anglr/translate-extensions` is now marked as *sideEffects* free
+ - stabilized for angular v6
+
 ## Version 5.0.0-beta.2
 - opravený názov balíčka
 

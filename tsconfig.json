@@ -19,11 +19,6 @@
             "es2016", 
             "dom"
         ],
-        "typeRoots": 
-        [
-            "node_modules/@types",
-            "node_modules/@anglr/types"
-        ],
         "plugins": 
         [
             {
