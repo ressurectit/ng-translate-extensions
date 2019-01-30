@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.1
+ - `ExternalTranslationLoader` updated now as `Injectable`
+
 ## Version 5.0.0
  - `@anglr/translate-extensions` is now marked as *sideEffects* free
  - stabilized for angular v6

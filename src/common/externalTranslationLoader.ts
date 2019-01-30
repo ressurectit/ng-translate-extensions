@@ -1,5 +1,6 @@
+import {Injectable, Optional, Inject} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Utils, isBlank} from '@anglr/common';
+import {Utils, isBlank, SERVER_BASE_URL} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
 import {Observable, Observer, forkJoin} from 'rxjs';
 
@@ -8,6 +9,7 @@ import {ExternalTranslationLoaderOptions} from './externalTranslationLoaderOptio
 /**
  * External translation loader, that can be configured with multiple resources
  */
+@Injectable()   
 export class ExternalTranslationLoader implements TranslateLoader
 {
     //######################### private fields #########################
@@ -19,8 +21,8 @@ export class ExternalTranslationLoader implements TranslateLoader
 
     //######################### constructor #########################
     constructor(private _options: ExternalTranslationLoaderOptions,
-                private _baseUrl: string,
-                private _http: HttpClient)
+                private _http: HttpClient,
+                @Optional() @Inject(SERVER_BASE_URL) private _baseUrl?: string)
     {
         if(isBlank(_baseUrl))
         {
