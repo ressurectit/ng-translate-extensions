@@ -1,6 +1,7 @@
 import {Injectable, Optional, Inject} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Utils, isBlank, SERVER_BASE_URL} from '@anglr/common';
+import {isBlank, extend} from '@jscrpt/common';
+import {SERVER_BASE_URL} from '@anglr/common';
 import {TranslateLoader} from '@ngx-translate/core';
 import {Observable, Observer, forkJoin} from 'rxjs';
 
@@ -39,7 +40,7 @@ export class ExternalTranslationLoader implements TranslateLoader
     
     /**
      * Gets translations for language
-     * @param {string} lang Id of language
+     * @param lang Id of language
      */
     public getTranslation(lang: string): Observable<any>
     {
@@ -75,7 +76,7 @@ export class ExternalTranslationLoader implements TranslateLoader
                                
                                for(var index in success)
                                {
-                                   Utils.common.extend(translations, success[index]);
+                                   extend(translations, success[index]);
                                }
                                
                                observer.next(translations);
