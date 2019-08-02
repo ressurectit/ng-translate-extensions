@@ -41,7 +41,7 @@
         "rxjs": ">=6.5.0",
         "@ngx-translate/core": ">=11.0.0",
         "@jscrpt/common": ">=1.0.1",
-        "@anglr/common": ">=6.0.0"
+        "@anglr/common": ">=6.4.0"
     },
     "devDependencies": {
         "@angular/core": "^8.0.0",
@@ -49,7 +49,7 @@
         "rxjs": "^6.5.0",
         "@ngx-translate/core": "^11.0.0",
         "@jscrpt/common": "^1.0.1",
-        "@anglr/common": "^6.0.0",
+        "@anglr/common": "^6.4.0",
         "@types/jasmine": "~2.8.7",
         "@angular/forms": "^8.0.0",
         "@angular/router": "^8.0.0",

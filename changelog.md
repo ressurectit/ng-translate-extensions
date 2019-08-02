@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 6.1.0
+
+- updated dependency on `@anglr/common` to at least version `6.4.0`
+- added utility function for translation and watching for language changes `translateString`
+- added `NgxTranslateStringLocalizationService` as implementation of `StringLocalization`
+
 ## Version 6.0.0
 
 - Angular IVY ready (APF compliant package)
