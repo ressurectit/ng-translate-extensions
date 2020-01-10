@@ -18,13 +18,13 @@
         "postpublish": "npm run version:placeholder && npm run clean",
         "bundle": "npm run clean && npm run build",
         "deploy": "npm publish",
-        "deploy:local": "npm publish --registry http://local:4873 && npm run docs",
         "deploy:next": "npm publish --tag next",
-        "deploy:next:local": "npm publish --tag next --registry http://local:4873 && npm run docs",
-        "docs": "compodoc src -d docs -n '@anglr/translate-extensions' -p tsconfig.json --disablePrivate --disableInternal --disableLifeCycleHooks",
-        "postdocs": "copyfiles -u 1 docs/**/*.* \\\\DOCS-SERVER\\docs\\ng-translate-extensions && npm run clean",
         "pretest": "webpack",
         "test": "karma start karma.conf.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ressurectit/ng-translate-extensions.git"
     },
     "keywords": [
         "angular",
@@ -35,6 +35,10 @@
     ],
     "author": "kukjevov",
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ressurectit/ng-translate-extensions/issues"
+    },
+    "homepage": "https://github.com/ressurectit/ng-translate-extensions",
     "peerDependencies": {
         "@angular/core": ">=8.0.0",
         "@angular/common": ">=8.0.0",
@@ -80,6 +84,6 @@
         "replace-in-file": "4.1.0",
         "typescript": "3.4.5",
         "webpack": "4.32.2",
-        "npm-git-version": "1.1.0"
+        "npm-git-version": "1.1.1"
     }
 }
