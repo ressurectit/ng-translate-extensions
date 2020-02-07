@@ -40,7 +40,7 @@ export class ExternalTranslationLoader implements TranslateLoader
     
     /**
      * Gets translations for language
-     * @param lang Id of language
+     * @param lang - Id of language
      */
     public getTranslation(lang: string): Observable<any>
     {

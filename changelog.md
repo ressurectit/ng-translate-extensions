@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 7.0.0
+
+- updated to latest stable *Angular* 9
+- added generating of API doc
+
 ## Version 6.1.0
 
 - updated dependency on `@anglr/common` to at least version `6.4.0`

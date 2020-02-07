@@ -24,9 +24,9 @@ export class ExternalTranslationLoaderOptions
 
     /**
      * Creates instance of ExternalTranslationLoaderOptions
-     * @param resourcePrefix Prefix that is used for all requests
-     * @param resources Names of resources that holds translations
-     * @param resourceSufix Sufix that is used for all requests
+     * @param resourcePrefix - Prefix that is used for all requests
+     * @param resources - Names of resources that holds translations
+     * @param resourceSufix - Sufix that is used for all requests
      */
     constructor(resourcePrefix: string, resources: string[], resourceSufix: string)
     {

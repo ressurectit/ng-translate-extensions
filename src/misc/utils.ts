@@ -4,10 +4,10 @@ import {Subscription} from "rxjs";
 
 /**
  * Performs translation of key(s) and calls callback, also listens for language changes
- * @param key Key or array of keys to be translated
- * @param translateService Translation service used for translation
- * @param translateCallback Callback with translated key or keys
- * @param interpolateParamsGet Callback used for obtaining interpolation object or objects (use array if key is array)
+ * @param key - Key or array of keys to be translated
+ * @param translateService - Translation service used for translation
+ * @param translateCallback - Callback with translated key or keys
+ * @param interpolateParamsGet - Callback used for obtaining interpolation object or objects (use array if key is array)
  */
 export function translateString<TKey extends string|string[]>(key: TKey, translateService: TranslateService, translateCallback: (translatedString: TKey) => void, interpolateParamsGet?: () => Object|Object[]): Subscription
 {
