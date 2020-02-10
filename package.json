@@ -23,7 +23,7 @@
         "pretest": "webpack",
         "test": "karma start karma.conf.js",
         "doc": "path-exists docs && npm run doc:generate || echo \"No docs generated!\"",
-        "doc:generate": "npm run doc:generate:translate-extensions && npm run doc:generate:hmr && npm run doc:generate:forms && npm run doc:generate:router && npm run doc:generate:numeral && npm run doc:generate:hotkeys && npm run doc:generate:store && npm run doc:generate:moment && npm run doc:generate:structured-log && npm run doc:save",
+        "doc:generate": "npm run doc:generate:translate-extensions && npm run doc:save",
         "doc:save": "cd docs && git add . && git commit -m \"INT: updated API docs ng-translate-extensions\" && git push && cd ..",
         "doc:generate:translate-extensions": "rimraf docs/content/api/ng-translate-extensions && npm run doc:json:translate-extensions && npm run doc:md:translate-extensions",
         "doc:json:translate-extensions": "api-extractor run --local --verbose -c api-extractor.json",
