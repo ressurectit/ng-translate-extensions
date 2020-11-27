@@ -7,17 +7,19 @@
         "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "noImplicitAny": false,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "strictNullChecks": false,
-        "lib": 
+        "strict": true,
+        "esModuleInterop": true,
+        "lib":
         [
-            "es2016", 
+            "ES2016",
+            "ES2017",
+            "ES2018",
             "dom"
         ],
-        "plugins": 
+        "plugins":
         [
             {
                 "name": "@angular/language-service"
@@ -27,10 +29,9 @@
     "exclude":
     [
         "node_modules",
-        "dist",
-        "karma-test-shim.ts"
+        "dist"
     ],
-    "angularCompilerOptions": 
+    "angularCompilerOptions":
     {
         "fullTemplateTypeCheck": true,
         "strictTemplates": true,

@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
  * @param translateCallback - Callback with translated key or keys
  * @param interpolateParamsGet - Callback used for obtaining interpolation object or objects (use array if key is array)
  */
-export function translateString<TKey extends string|string[]>(key: TKey, translateService: TranslateService, translateCallback: (translatedString: TKey) => void, interpolateParamsGet?: () => Object|Object[]): Subscription
+export function translateString<TKey extends string|string[]>(key: TKey, translateService: TranslateService, translateCallback: (translatedString: TKey) => void, interpolateParamsGet: () => Object|Object[]): Subscription
 {
     function translate(key: TKey): TKey
     {
@@ -17,7 +17,7 @@ export function translateString<TKey extends string|string[]>(key: TKey, transla
 
         if(Array.isArray(key))
         {
-            return key.map((keyValue, index) => translateService.instant(keyValue, (isPresent(interpolateParams) && Array.isArray(interpolateParams)) ? interpolateParams[index] : null)) as any;
+            return key.map((keyValue, index) => translateService.instant(keyValue, (isPresent(interpolateParams) && Array.isArray(interpolateParams)) ? interpolateParams[index] : undefined)) as any;
         }
         else
         {

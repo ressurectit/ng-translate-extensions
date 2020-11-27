@@ -13,11 +13,11 @@ export class NgxTranslateStringLocalizationService implements StringLocalization
     //######################### public properties - implementation of StringLocalization #########################
 
     /**
-     * Occurs when indication that locale has changes and strings should be obtained again, because they have changed
+     * Occurs when indication that locale has changed and strings should be obtained again, because they have changed
      */
     public get textsChange(): Observable<void>
     {
-        return this._translateSvc.onLangChange.pipe(map(() => null));
+        return this._translateSvc.onLangChange.pipe(map(() => {}));
     }
 
     //######################### constructors #########################
