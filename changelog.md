@@ -1,12 +1,12 @@
 # Changelog
 
-## Version 8.0.0 (2020-11-27)
+## Version 8.0.0 (2022-02-17)
 
 ### BREAKING CHANGES
 
 - minimal supported version of *Angular* is `11.0.0`
 - minimal supported version of `@jscrpt/common` is `1.2.0`
-- minimal supported version of `@anglr/common` is `8.0.0`
+- minimal supported version of `@anglr/common` is `9.0.0`
 - `translateString` last parameter is no longer optional
 
 ## Version 7.0.0
