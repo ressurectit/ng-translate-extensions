@@ -1,5 +1,17 @@
 # Changelog
 
+## Version 9.0.0 (2022-06-30)
+
+### BREAKING CHANGES
+
+- minimal supported version of *Angular* is `14.0.0`
+- minimal supported version of `@jscrpt/common` is `2.2.0`
+- minimal supported version of `@anglr/common` is `11.2.0`
+- minimal supported version of `rxjs` is `6.6.7`
+- compiled as *Angular IVY* **only** with new *APF*
+- removed support of *es5* target and using latest package.json features
+- dropped support of `Node.js <= 12.20`
+
 ## Version 8.0.0 (2022-02-17)
 
 ### BREAKING CHANGES

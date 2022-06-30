@@ -1,22 +1,30 @@
 {
     "compilerOptions":
     {
-        "target": "es5",
-        "module": "esnext",
+        "target": "es2020",
+        "module": "es2020",
         "moduleResolution": "node",
+        "sourceMap": true,
+        "inlineSources": true,
         "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "noImplicitAny": true,
         "noImplicitReturns": true,
+        "noImplicitOverride": true,
+        "noImplicitThis": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "strict": true,
+        "strictNullChecks": false,
         "esModuleInterop": true,
+        "importHelpers": true,
+        "newLine": "lf",
+        "rootDir": ".",
+        "outDir": "es2020",
         "lib":
         [
-            "ES2016",
-            "ES2017",
-            "ES2018",
+            "es2020",
             "dom"
         ],
         "plugins":
@@ -28,13 +36,13 @@
     },
     "exclude":
     [
-        "node_modules",
-        "dist"
+        "node_modules"
     ],
     "angularCompilerOptions":
     {
-        "fullTemplateTypeCheck": true,
         "strictTemplates": true,
-        "enableIvy": false
+        "compilationMode": "partial",
+        "enableResourceInlining": true,
+        "strictInjectionParameters": true
     }
 }
