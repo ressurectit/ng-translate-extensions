@@ -1,6 +1,6 @@
-import {TranslateService} from "@ngx-translate/core";
-import {isPresent} from "@jscrpt/common";
-import {Subscription} from "rxjs";
+import {isPresent} from '@jscrpt/common';
+import {TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
 
 /**
  * Performs translation of key(s) and calls callback, also listens for language changes
@@ -9,11 +9,11 @@ import {Subscription} from "rxjs";
  * @param translateCallback - Callback with translated key or keys
  * @param interpolateParamsGet - Callback used for obtaining interpolation object or objects (use array if key is array)
  */
-export function translateString<TKey extends string|string[]>(key: TKey, translateService: TranslateService, translateCallback: (translatedString: TKey) => void, interpolateParamsGet: () => Object|Object[]): Subscription
+export function translateString<TKey extends string|string[]>(key: TKey, translateService: TranslateService, translateCallback: (translatedString: TKey) => void, interpolateParamsGet: () => object|object[]): Subscription
 {
     function translate(key: TKey): TKey
     {
-        let interpolateParams = interpolateParamsGet();
+        const interpolateParams = interpolateParamsGet();
 
         if(Array.isArray(key))
         {

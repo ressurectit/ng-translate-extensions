@@ -5,14 +5,13 @@
     "type": "module",
     "sideEffects": false,
     "scripts": {
-        "build": "ngc --declaration --declarationDir . --declarationMap && ngc -t es2015 --outDir es2015",
-        "dts:rollup": "npm run api -- api-extractor.json",
+        "build": "ngc --declaration --declarationDir . --declarationMap",
         "api": "api-extractor run --local --verbose -c",
-        "clean": "rimraf */temp temp es2015 es2020 **/tsdoc-metadata.json src/**/*.d.ts src/**/*.d.ts.map */src/**/*.d.ts */src/**/*.d.ts.map ./*.d.ts ./*.d.ts.map */*.d.ts",
+        "clean": "rimraf --glob */temp temp es2022 **/tsdoc-metadata.json src/**/*.d.ts src/**/*.d.ts.map */src/**/*.d.ts */src/**/*.d.ts.map ./*.d.ts ./*.d.ts.map */*.d.ts",
         "clean:deps": "rimraf package-lock.json node_modules || echo 'node_modules removed'",
         "clean:all": "npm run clean && npm run clean:deps",
         "ngc": "ngc",
-        "version:placeholder": "replace-in-file /\\\"version\\\":\\s\\\".*?\\\"/g \"\\\"version\\\": \\\"0.0.0-placeholder\\\"\" package.json --isRegex",
+        "version:placeholder": "replace-in-file /\\\"version\\\":\\s\\\".*?\\\"/g \"\\\"version\\\": \\\"0.0.0-placeholder\\\"\" package.json",
         "version:git": "ngv -e \"replace-in-file 0.0.0-placeholder $GIT_VERSION package.json && echo $GIT_VERSION > version.bak\"",
         "version:build": "ngv -e \"echo $GIT_VERSION > version.bak\"",
         "prepublishOnly": "npm run bundle && npm run version:placeholder && npm run version:git",
@@ -31,7 +30,7 @@
         "doc:md:translate-extensions": "api-documenter markdown -i temp -o docs/content/api/ng-translate-extensions"
     },
     "engines": {
-        "node": "^14.15.0 || >=16.10.0"
+        "node": "^18.13.0 || >=20.9.0"
     },
     "repository": {
         "type": "git",
@@ -50,57 +49,62 @@
         "url": "https://github.com/ressurectit/ng-translate-extensions/issues"
     },
     "homepage": "https://github.com/ressurectit/ng-translate-extensions",
-    "peerDependencies": {
-        "@angular/core": ">=14.0.0",
-        "@angular/common": ">=14.0.0",
-        "rxjs": ">=6.6.7",
-        "@ngx-translate/core": ">=14.0.0",
-        "@jscrpt/common": ">=2.2.0",
-        "@anglr/common": ">=11.2.0",
-        "tslib": "^2.3.1"
+    "dependencies": {
+        "@anglr/common": ">=22.0.0",
+        "@angular/common": ">=19.1.0",
+        "@angular/core": ">=19.1.0",
+        "@jscrpt/common": ">=7.0.0",
+        "@ngx-translate/core": ">=16.0.4",
+        "rxjs": ">=7.5.7",
+        "tslib": "^2.8.1"
     },
     "devDependencies": {
-        "@angular/core": "^14.0.0",
-        "@angular/common": "^14.0.0",
-        "@angular/animations": "^14.0.0",
-        "rxjs": "^6.6.7",
-        "@ngx-translate/core": "^14.0.0",
-        "@jscrpt/common": "^2.2.0",
-        "@anglr/common": "^11.2.0",
-        "@types/node": "^14.14.31",
-        "@angular/compiler-cli": "^14.0.0",
-        "@angular/compiler": "^14.0.0",
-        "@angular/language-service": "^14.0.0",
-        "@microsoft/api-extractor": "7.19.2",
-        "@microsoft/api-documenter": "7.13.77",
-        "tslib": "2.3.1",
-        "eslint": "7.32.0",
-        "@typescript-eslint/eslint-plugin": "4.33.0",
-        "@typescript-eslint/parser": "4.33.0",
-        "eslint-plugin-ressurectit": "0.1.0",
-        "rimraf": "3.0.2",
+        "@anglr/common": "22.0.0",
+        "@angular/animations": "19.1.0",
+        "@angular/common": "19.1.0",
+        "@angular/compiler": "19.1.0",
+        "@angular/compiler-cli": "19.1.0",
+        "@angular/core": "19.1.0",
+        "@angular/language-service": "19.1.0",
+        "@jscrpt/common": "7.0.0",
+        "@microsoft/api-documenter": "7.26.5",
+        "@microsoft/api-extractor": "7.49.1",
+        "@stylistic/eslint-plugin": "2.13.0",
+        "@ngx-translate/core": "14.0.0",
+        "@types/node": "22.7.4",
         "copyfiles": "2.4.1",
-        "replace-in-file": "6.3.2",
+        "eslint": "9.18.0",
+        "eslint-plugin-ressurectit": "0.3.0",
+        "npm-git-version": "2.0.0",
         "path-exists-cli": "2.0.0",
-        "typescript": "4.7.2",
-        "npm-git-version": "2.0.0"
+        "replace-in-file": "8.3.0",
+        "rimraf": "6.0.1",
+        "rxjs": "7.5.7",
+        "tslib": "2.8.1",
+        "typescript": "5.7.3",
+        "typescript-eslint": "8.20.0"
     },
-    "esm2020": "./es2020/src/index.js",
-    "es2020": "./es2020/src/index.js",
-    "es2015": "./es2015/src/index.js",
-    "module": "./es2015/src/index.js",
+    "module": "./es2022/src/index.js",
     "typings": "./src/index.d.ts",
     "exports": {
         "./package.json": {
             "default": "./package.json"
         },
+        "./styles": {
+            "sass": "./styles/index.scss"
+        },
+        "./styles/themes/*": {
+            "sass": "./styles/themes/*.scss"
+        },
+        "./typings/*": {
+            "types": "./typings/*/index.d.ts"
+        },
         ".": {
             "types": "./src/index.d.ts",
-            "esm2020": "./es2020/src/index.js",
-            "es2020": "./es2020/src/index.js",
-            "es2015": "./es2015/src/index.js",
-            "node": "./es2015/src/index.js",
-            "default": "./es2020/src/index.js"
+            "esm2022": "./es2022/src/index.js",
+            "es2022": "./es2022/src/index.js",
+            "node": "./es2022/src/index.js",
+            "default": "./es2022/src/index.js"
         }
     }
 }

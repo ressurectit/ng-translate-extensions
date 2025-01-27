@@ -1,5 +1,17 @@
 # Changelog
 
+## Version 10.0.0 (2025-01-27)
+
+### BREAKING CHANGES
+
+- minimal supported version of `NodeJs` is `18`
+- minimal supported version of `@angular` is `19.1.0`
+- minimal supported version of `rxjs` is `7.5.7`
+- minimal supported version of `@jscrpt/common` is `7.0.0`
+- minimal supported version of `@anglr/common` is `22.0.0`
+- minimal supported version of `@ngx-translate/core` is `16.0.1`
+- minimal supported version of `tslib` is `2.8.1`
+
 ## Version 9.0.0 (2022-06-30)
 
 ### BREAKING CHANGES

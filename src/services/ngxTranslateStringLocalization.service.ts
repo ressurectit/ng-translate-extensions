@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {StringLocalization} from "@anglr/common";
-import {TranslateService} from "@ngx-translate/core";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import {Injectable} from '@angular/core';
+import {StringLocalization} from '@anglr/common';
+import {TranslateService} from '@ngx-translate/core';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 /**
  * Implementation of StringLocalization, which uses ngxTranslate as localization engine
@@ -32,7 +32,7 @@ export class NgxTranslateStringLocalizationService implements StringLocalization
      * @param key - Key to be localizaed
      * @param interpolateParams - Optional object storing interpolation parameters
      */
-    public get(key: string, interpolateParams?: Object): string
+    public get(key: string, interpolateParams?: object): string
     {
         return this._translateSvc.instant(key, interpolateParams);
     }
