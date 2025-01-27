@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {StringLocalization} from '@anglr/common';
+import {forwardRef, Injectable} from '@angular/core';
+import {STRING_LOCALIZATION, StringLocalization, TypeProvider} from '@anglr/common';
 import {TranslateService} from '@ngx-translate/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators';
  * Implementation of StringLocalization, which uses ngxTranslate as localization engine
  */
 @Injectable()
+@TypeProvider({provide: STRING_LOCALIZATION, useClass: forwardRef(() => NgxTranslateStringLocalizationService)})
 export class NgxTranslateStringLocalizationService implements StringLocalization
 {
     //######################### public properties - implementation of StringLocalization #########################

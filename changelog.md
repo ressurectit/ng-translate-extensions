@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 10.1.0 (2025-01-27)
+
+### Features
+
+- updated `NgxTranslateStringLocalizationService` service
+    - now it can be used with `provideStringLocalization` function
+
 ## Version 10.0.0 (2025-01-27)
 
 ### BREAKING CHANGES
