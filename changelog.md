@@ -6,6 +6,7 @@
 
 - minimal supported version of `NodeJs` is `20`
 - minimal supported version of `angular` is `21.1.3`
+- minimal supported version of `@anglr/common` is `24.0.0`
 - minimal supported version of `@jscrpt/common` is `7.1.0`
 - minimal supported version of `@ngx-translate/core` is `17.0.0`
 - updated `NgxTranslateStringLocalizationService` service
