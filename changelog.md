@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 11.0.1 (2026-02-09)
+
+### Bug Fixes
+
+- fixed `NgxTranslateStringLocalizationService` service
+    - now does not cause infinite cycle of errors when used with error of using `effect` inside of reactive context
+
 ## Version 11.0.0 (2026-02-09)
 
 ### BREAKING CHANGES
