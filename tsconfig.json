@@ -3,7 +3,7 @@
     {
         "target": "ES2022",
         "module": "ES2022",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "sourceMap": true,
         "inlineSources": true,
         "declaration": false,
@@ -20,14 +20,14 @@
         "esModuleInterop": true,
         "importHelpers": true,
         "useDefineForClassFields": false,
-        "skipLibCheck": false,
+        "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "newLine": "lf",
         "rootDir": ".",
         "outDir": "es2022",
         "lib":
         [
-            "es2020",
+            "ES2022",
             "dom"
         ],
         "plugins":
@@ -50,6 +50,7 @@
         "strictInputAccessModifiers": true,
         "strictTemplates": true,
         "strictStandalone": true,
+        "typeCheckHostBindings": true,
         "extendedDiagnostics":
         {
             "checks":

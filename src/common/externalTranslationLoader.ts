@@ -45,7 +45,7 @@ export class ExternalTranslationLoader implements TranslateLoader
      */
     public getTranslation(lang: string): Observable<any>
     {
-        return Observable.create((observer: Observer<any>) =>
+        return new Observable((observer: Observer<any>) =>
         {
             const translationsResources: Promise<any>[] = [];
 
@@ -71,22 +71,24 @@ export class ExternalTranslationLoader implements TranslateLoader
             });
 
             forkJoin(translationsResources)
-                .subscribe(success =>
-                           {
-                               const translations = {};
-
-                               for(const index in success)
+                .subscribe({
+                               next: success =>
                                {
-                                   extend(translations, success[index]);
-                               }
+                                   const translations = {};
 
-                               observer.next(translations);
-                               observer.complete();
-                           },
-                           error =>
-                           {
-                               observer.error(error);
-                               observer.complete();
+                                   for(const index in success)
+                                   {
+                                       extend(translations, success[index]);
+                                   }
+
+                                   observer.next(translations);
+                                   observer.complete();
+                               },
+                               error: error =>
+                               {
+                                   observer.error(error);
+                                   observer.complete();
+                               }
                            });
         });
     }

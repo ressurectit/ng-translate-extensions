@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 11.0.0 (2026-02-09)
+
+### BREAKING CHANGES
+
+- minimal supported version of `NodeJs` is `20`
+- minimal supported version of `angular` is `21.1.3`
+- minimal supported version of `@jscrpt/common` is `7.1.0`
+- minimal supported version of `@ngx-translate/core` is `17.0.0`
+- updated `NgxTranslateStringLocalizationService` service
+    - updated to latest version of `StringLocalization` interface
+
 ## Version 10.1.0 (2025-01-27)
 
 ### Features

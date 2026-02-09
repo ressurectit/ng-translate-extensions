@@ -1,8 +1,7 @@
-import {forwardRef, Injectable} from '@angular/core';
+import {forwardRef, inject, Injectable, Injector, isSignal, signal, Signal} from '@angular/core';
+import {rxResource} from '@angular/core/rxjs-interop';
 import {STRING_LOCALIZATION, StringLocalization, TypeProvider} from '@anglr/common';
 import {TranslateService} from '@ngx-translate/core';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 /**
  * Implementation of StringLocalization, which uses ngxTranslate as localization engine
@@ -11,20 +10,17 @@ import {map} from 'rxjs/operators';
 @TypeProvider({provide: STRING_LOCALIZATION, useClass: forwardRef(() => NgxTranslateStringLocalizationService)})
 export class NgxTranslateStringLocalizationService implements StringLocalization
 {
-    //######################### public properties - implementation of StringLocalization #########################
+    //######################### protected fields #########################
 
     /**
-     * Occurs when indication that locale has changed and strings should be obtained again, because they have changed
+     * Instance of translate service
      */
-    public get textsChange(): Observable<void>
-    {
-        return this._translateSvc.onLangChange.pipe(map(() => {}));
-    }
+    protected translateSvc: TranslateService = inject(TranslateService);
 
-    //######################### constructors #########################
-    constructor(private _translateSvc: TranslateService)
-    {
-    }
+    /**
+     * Injector used for obtaining dependencies
+     */
+    protected injector: Injector = inject(Injector);
 
     //######################### public methods - implementation of StringLocalization #########################
 
@@ -33,8 +29,23 @@ export class NgxTranslateStringLocalizationService implements StringLocalization
      * @param key - Key to be localizaed
      * @param interpolateParams - Optional object storing interpolation parameters
      */
-    public get(key: string, interpolateParams?: object): string
+    public get(key: string|Signal<string>, interpolateParams?: Record<string, any>|Signal<Record<string, any>>|null): Signal<string>
     {
-        return this._translateSvc.instant(key, interpolateParams);
+        const keySignal: Signal<string> = isSignal(key) ? key : signal(key);
+        const interpolateParamsSignal: Signal<Record<string, any>|undefined|null> = isSignal(interpolateParams) ? interpolateParams : signal(interpolateParams);
+
+        return rxResource(
+        {
+            defaultValue: '',
+            injector: this.injector,
+            params: () =>
+            {
+                return {
+                    key: keySignal(),
+                    interpolateParams: interpolateParamsSignal(),
+                };
+            },
+            stream: ({params}) => this.translateSvc.stream(params.key, params.interpolateParams ?? {}),
+        }).value;
     }
 }
