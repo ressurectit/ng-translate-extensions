@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 12.0.0 (2026-02-10)
+
+### Features
+
+- updated `NgxTranslateStringLocalizationService` service
+    - now supports synchronous read using new argument `syncRead`
+
+### BREAKING CHANGES
+
+- minimal supported version of `@anglr/common` is `24.1.0`
+
 ## Version 11.0.1 (2026-02-09)
 
 ### Bug Fixes

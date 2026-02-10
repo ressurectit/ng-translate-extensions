@@ -25,14 +25,17 @@ export class NgxTranslateStringLocalizationService implements StringLocalization
     //######################### public methods - implementation of StringLocalization #########################
 
     /**
-     * Gets localized string for specified key, interpolation might be used
-     * @param key - Key to be localizaed
-     * @param interpolateParams - Optional object storing interpolation parameters
+     * @inheritdoc
      */
-    public get(key: string|Signal<string>, interpolateParams?: Record<string, any>|Signal<Record<string, any>>|null): Signal<string>
+    public get(key: string|Signal<string>, interpolateParams?: Record<string, any>|Signal<Record<string, any>>|null, syncRead?: boolean): Signal<string>
     {
         const keySignal: Signal<string> = isSignal(key) ? key : signal(key);
         const interpolateParamsSignal: Signal<Record<string, any>|undefined|null> = isSignal(interpolateParams) ? interpolateParams as Signal<Record<string, any>> : signal(interpolateParams);
+
+        if(syncRead)
+        {
+            return signal(this.translateSvc.instant(keySignal(), interpolateParamsSignal() ?? {}));
+        }
 
         return untracked(() => rxResource(
         {
